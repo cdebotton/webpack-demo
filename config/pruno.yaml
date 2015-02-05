@@ -1,0 +1,32 @@
+vars:
+  src: ./src
+  dist: ./dist
+stylus:
+  entry: "::src/stylus/index.styl"
+  dist: "::dist/stylesheets/app.css"
+  search: "::src/**/*.styl"
+  minify: false
+  source-maps: true
+  font-awesome: true
+  normalize: true
+  use:
+    - nib
+    - jeet
+    - rupture
+http:
+  listen: 3000
+  env: development
+  dist: "::dist"
+publish:
+  pkg: false
+  src:
+    - "::src/assets/**/*"
+  dist: "::dist"
+jade:
+  data: "::src/templates/data"
+  entry: "::src/templates/**/*.jade"
+  dist: "::dist"
+  search:
+    - "::src/templates/**/*.jade"
+    - "::src/templates/data/**/*"
+  ignorePrefix: _
