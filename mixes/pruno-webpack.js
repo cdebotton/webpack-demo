@@ -14,7 +14,8 @@ WebpackTask.getDefaults = function() {
   return {
     entry: '::src/index.js',
     dist: '::dist/bundle.js',
-    uglify: false
+    uglify: false,
+    devtool: 'eval-source-map'
   };
 };
 
