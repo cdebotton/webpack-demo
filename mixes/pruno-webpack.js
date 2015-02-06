@@ -65,9 +65,7 @@ function buildConfig(params, watch) {
 
     context: path.join(__dirname, '..'),
 
-    devtool: watch ? '#eval-source-map' : 'eval',
-
-    inlineSourceMaps: true,
+    devtool: watch ? '#eval-source-map' : false,
 
     entry: {
       bundle: watch ? [
@@ -87,8 +85,15 @@ function buildConfig(params, watch) {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ] : [
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': 'production'
+        }
+      }),
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        comments: false
+      }),
       new webpack.optimize.OccurenceOrderPlugin()
     ],
 
