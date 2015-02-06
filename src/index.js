@@ -8,6 +8,6 @@ ReactRouter.run(routes, HistoryLocation, (Handler, state) => {
     <Handler
       params={state.params}
       query={state.query} />,
-    document.getElementById('app-mount')
+    document
   );
 });

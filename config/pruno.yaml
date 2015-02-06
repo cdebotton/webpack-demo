@@ -14,6 +14,7 @@ stylus:
     - jeet
     - rupture
 http:
+  lrPort: 35729
   listen: 3000
   env: development
   dist: "::dist"
@@ -30,3 +31,7 @@ jade:
     - "::src/templates/**/*.jade"
     - "::src/templates/data/**/*"
   ignorePrefix: _
+del:
+  dirs:
+    - "::dist"
+  watch: false

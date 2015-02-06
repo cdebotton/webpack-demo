@@ -5,6 +5,7 @@ class AppStore {
   constructor() {
     this.bindActions(AppActionCreators);
     this.toggle = false;
+    this.message = 'Oh, Hello!';
   }
 
   onToggle(data = {}) {
